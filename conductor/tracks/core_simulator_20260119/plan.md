@@ -16,8 +16,8 @@
 
 ## Phase 3: C++ API Development
 
-- [~] Task: Design the C++ API for motor control.
-    - [ ] Implement functions to set motor velocities.
+- [x] Task: Design the C++ API for motor control. [c7cbcfe]
+    - [x] Implement functions to set motor velocities. [c7cbcfe]
 - [ ] Task: Design the C++ API for reading sensor data.
     - [ ] Implement functions to get data from encoders and inertial sensors.
 - [ ] Task: Create an example C++ algorithm to demonstrate API usage.
