@@ -7,7 +7,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(SDL2 REQUIRED)
 
-add_executable(tntn-simulator src/main.cpp)
+add_executable(tntn-simulator 
+    src/main.cpp
+    src/robot/Robot.cpp
+    src/physics/PhysicsEngine.cpp
+)
 
 target_include_directories(tntn-simulator PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
