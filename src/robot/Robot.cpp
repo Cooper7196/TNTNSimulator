@@ -13,4 +13,28 @@ void Robot::addWheel(Vector2D position, double radius, double maxSpeed) {
     wheels.push_back(Wheel(position, radius, maxSpeed));
 }
 
+void Robot::update(double dt) {
+    for (auto& motor : motors) {
+        motor->update(dt);
+    }
+}
+
+int Robot::addMotor(double maxVelocity, double maxTorque) {
+    motors.push_back(std::make_shared<Motor>(maxVelocity, maxTorque));
+    return motors.size() - 1;
+}
+
+void Robot::setMotorVelocity(int motorIndex, double velocity) {
+    if (motorIndex >= 0 && motorIndex < motors.size()) {
+        motors[motorIndex]->setVelocity(velocity);
+    }
+}
+
+double Robot::getMotorVelocity(int motorIndex) {
+    if (motorIndex >= 0 && motorIndex < motors.size()) {
+        return motors[motorIndex]->velocity;
+    }
+    return 0.0;
+}
+
 }
