@@ -11,7 +11,6 @@ void PhysicsEngine::addRobot(Robot* robot) {
 void PhysicsEngine::update(double dt) {
     for (auto* robot : robots) {
         robot->update(dt);
-        robot->body.update(dt);
     }
 }
 

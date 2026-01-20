@@ -3,7 +3,6 @@
 #include <iostream>
 #include "physics/PhysicsEngine.hpp"
 #include "robot/Robot.hpp"
-#include "examples/BasicMovement.hpp"
 
 using namespace sim;
 
@@ -30,19 +29,29 @@ int main(int argc, char* argv[]) {
 
     // Initialize Physics
     PhysicsEngine physics;
-    // 30cm = 0.3m, 5kg
-    Robot robot(0.3, 0.3, 5.0); 
+    
+    // Robot Parameters
+    Vector2D startPos(0.0, 0.0);
+    double startTheta = 0.0;
+    double wheelRadius = 0.0508; // 2 inches in meters
+    double trackRadius = 0.1524; // 6 inches in meters
+    double cartridge = 600.0; // RPM
+    double gearRatio = 1.0; 
+    double mass = 4.53592; // ~10 lbs in kg
+    double inertia = 1.0; 
+
+    Robot robot(startPos, startTheta, wheelRadius, trackRadius, cartridge, gearRatio, mass, inertia);
+    
     physics.addRobot(&robot);
 
-    // Run Example Algorithm Setup
-    runBasicMovement(robot);
+    // Set some test voltages
+    robot.setVoltages(6.0, 6.0); // 6 Volts
 
     bool quit = false;
     SDL_Event event;
     
     // Simulation loop
     double dt = 0.02; // 20ms
-    double currentTime = 0.0;
 
     while (!quit) {
         while (SDL_PollEvent(&event)) {
@@ -51,15 +60,11 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        // Update Algorithm
-        updateAlgorithm(robot, currentTime);
-
         // Update Physics
         physics.update(dt);
-        currentTime += dt;
 
-        // Render (Placeholder)
-        // ...
+        // Debug Output
+        // std::cout << "Pos: " << robot.getPos().getX() << ", " << robot.getPos().getY() << std::endl;
         
         SDL_Delay(20); // ~50 FPS
     }

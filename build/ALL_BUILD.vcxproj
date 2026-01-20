@@ -173,9 +173,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\cbros\Documents\Programming\TNTNSimulator\build\physics_test.vcxproj">
+      <Project>{9220D91E-AE77-3711-A652-91DD48ED9174}</Project>
+      <Name>physics_test</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\cbros\Documents\Programming\TNTNSimulator\build\tntn-simulator.vcxproj">
       <Project>{8C2F186C-B756-3531-B4A7-3306172AEA22}</Project>
       <Name>tntn-simulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\cbros\Documents\Programming\TNTNSimulator\build\tntn_core.vcxproj">
+      <Project>{6E0BAE39-A806-3B9E-B0FA-8E29B0502631}</Project>
+      <Name>tntn_core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

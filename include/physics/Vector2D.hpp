@@ -29,24 +29,6 @@ public:
         return *this;
     }
 
-    Vector2D& operator-=(const Vector2D& other) {
-        x -= other.x;
-        y -= other.y;
-        return *this;
-    }
-
-    Vector2D& operator*=(double factor) {
-        x *= factor;
-        y *= factor;
-        return *this;
-    }
-
-    Vector2D& operator/=(double factor) {
-        x /= factor;
-        y /= factor;
-        return *this;
-    }
-
     double dot(const Vector2D& other) const { return x * other.x + y * other.y; }
     double cross(const Vector2D& other) const { return x * other.y - y * other.x; }
 
