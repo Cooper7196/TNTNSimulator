@@ -15,10 +15,20 @@ public:
     double inertia;
     double gear_ratio;
     double cartridge_rpm; // Motor cartridge (e.g. 600, 200)
+    
+    // Friction Coefficients
+    double friction_linear = 0.0; 
+    double friction_angular = 0.0; 
+    double viscous_linear = 0.5;  // N / (m/s)
+    double viscous_angular = 0.1; // Nm / (rad/s)
+    double mu_lat = 0.3; // Lateral friction coefficient
+    double gravity = 9.81;
 
     // State
     Vector2D pos;
-    Vector2D vel;
+    Vector2D vel; // Global velocity
+    double v_lateral = 0.0; // Local lateral velocity
+    double v_fwd_prev = 0.0; // Forward velocity from previous step
     double theta;
     
     // Motor voltages (Volts)
