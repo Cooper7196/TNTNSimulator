@@ -1,0 +1,31 @@
+# CMake
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Visual Studio
+.vs/
+Debug/
+Release/
+x64/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.user
+*.suo
+*.db
+*.opendb
+
+# vcpkg
+vcpkg/
+
+# Temporary files
+temp_v5_sim_engine_2/
+tntn-simulator.dir/
+
+# Others
+.DS_Store
+*.log
