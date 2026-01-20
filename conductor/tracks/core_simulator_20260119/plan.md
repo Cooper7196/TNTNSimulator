@@ -7,7 +7,7 @@
 - [x] Task: Create the main simulation loop. [0b4b959]
 - [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
-## Phase 2: Physics Engine and Robot Model
+## Phase 2: Physics Engine and Robot Model [checkpoint: 1a29e95]
 
 - [x] Task: Design and implement the core components of the custom 2D physics engine for robot movement. [e219451]
 - [x] Task: Create the data structures to represent the VexU robot model (e.g., chassis, wheels, sensors). [15f3711]
