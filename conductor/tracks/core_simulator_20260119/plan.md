@@ -14,7 +14,7 @@
 - [x] Task: Integrate the robot model with the physics engine. [9ee889d]
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
-## Phase 3: C++ API Development
+## Phase 3: C++ API Development [checkpoint: 87efcf7]
 
 - [x] Task: Design the C++ API for motor control. [c7cbcfe]
     - [x] Implement functions to set motor velocities. [c7cbcfe]
