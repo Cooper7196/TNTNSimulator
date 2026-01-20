@@ -20,7 +20,7 @@
 
 ## Phase 5: Initial Testing and Documentation
 
-- [ ] Task: Write basic documentation for the C++ API.
-- [ ] Task: Perform manual testing of the core features.
-- [ ] Task: Create a `README.md` with instructions on how to build and run the simulator.
-- [ ] Task: Conductor - User Manual Verification 'Phase 5' (Protocol in workflow.md)
+- [x] Task: Write basic documentation for the C++ API.
+- [x] Task: Perform manual testing of the core features.
+- [x] Task: Create a `README.md` with instructions on how to build and run the simulator.
+- [x] Task: Conductor - User Manual Verification 'Phase 5' (Protocol in workflow.md)
