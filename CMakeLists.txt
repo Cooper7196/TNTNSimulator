@@ -11,6 +11,7 @@ add_executable(tntn-simulator
     src/main.cpp
     src/robot/Robot.cpp
     src/physics/PhysicsEngine.cpp
+    src/examples/BasicMovement.cpp
 )
 
 target_include_directories(tntn-simulator PUBLIC ${PROJECT_SOURCE_DIR}/include)

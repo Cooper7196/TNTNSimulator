@@ -3,6 +3,7 @@
 #include <iostream>
 #include "physics/PhysicsEngine.hpp"
 #include "robot/Robot.hpp"
+#include "examples/BasicMovement.hpp"
 
 using namespace sim;
 
@@ -33,11 +34,15 @@ int main(int argc, char* argv[]) {
     Robot robot(0.3, 0.3, 5.0); 
     physics.addRobot(&robot);
 
+    // Run Example Algorithm Setup
+    runBasicMovement(robot);
+
     bool quit = false;
     SDL_Event event;
     
     // Simulation loop
     double dt = 0.02; // 20ms
+    double currentTime = 0.0;
 
     while (!quit) {
         while (SDL_PollEvent(&event)) {
@@ -46,8 +51,12 @@ int main(int argc, char* argv[]) {
             }
         }
 
+        // Update Algorithm
+        updateAlgorithm(robot, currentTime);
+
         // Update Physics
         physics.update(dt);
+        currentTime += dt;
 
         // Render (Placeholder)
         // ...
