@@ -1,6 +1,11 @@
 #pragma once
 
 #include <SDL.h>
+#include <SDL_ttf.h>
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <sstream>
 #include "robot/Robot.hpp"
 
 namespace sim {
@@ -9,12 +14,82 @@ class Renderer {
 public:
     double scale; // pixels per meter
     int offsetX, offsetY; // offset to center of screen in pixels
+    TTF_Font* font = nullptr;
 
     Renderer(int screenWidth, int screenHeight, double fieldWidthMeters) {
         scale = (screenWidth < screenHeight ? screenWidth : screenHeight) / fieldWidthMeters;
         offsetX = screenWidth / 2;
         offsetY = screenHeight / 2;
+
+        if (TTF_Init() < 0) {
+            std::cerr << "TTF_Init error: " << TTF_GetError() << std::endl;
+        } else {
+            // Try to load a system font
+            font = TTF_OpenFont("C:/Windows/Fonts/arial.ttf", 16);
+            if (!font) {
+                // Fallback or error
+                std::cerr << "Failed to load font: " << TTF_GetError() << std::endl;
+            }
+        }
     }
+
+    ~Renderer() {
+        if (font) TTF_CloseFont(font);
+        TTF_Quit();
+    }
+
+    void renderText(SDL_Renderer* renderer, int x, int y, const std::string& text) {
+        if (!font) return;
+        SDL_Color color = {255, 255, 255, 255};
+        SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), color);
+        if (surface) {
+            SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+            if (texture) {
+                SDL_Rect dest = {x, y, surface->w, surface->h};
+                SDL_RenderCopy(renderer, texture, NULL, &dest);
+                SDL_DestroyTexture(texture);
+            }
+            SDL_FreeSurface(surface);
+        }
+    }
+
+    void renderDebugInfo(SDL_Renderer* renderer, const Robot& robot) {
+        if (!font) return;
+        
+        std::stringstream ss;
+        ss << std::fixed << std::setprecision(2);
+        
+        ss << "Pos: (" << robot.getPos().getX() << ", " << robot.getPos().getY() << ")";
+        renderText(renderer, 10, 10, ss.str());
+        ss.str("");
+
+        ss << "Theta: " << robot.getTheta() * 180.0 / M_PI << " deg";
+        renderText(renderer, 10, 30, ss.str());
+        ss.str("");
+
+        // Calculate linear velocity from state vector X_l (assuming [v_L, v_R])
+        double vL = robot.X_l(0,0);
+        double vR = robot.X_l(1,0);
+        double linVel = (vL + vR) / 2.0;
+        double angVel = (vR - vL) / (robot.track_radius * 2.0);
+
+        ss << "Lin Vel: " << linVel << " m/s";
+        renderText(renderer, 10, 50, ss.str());
+        ss.str("");
+
+        ss << "Ang Vel: " << angVel * 180.0 / M_PI << " deg/s";
+        renderText(renderer, 10, 70, ss.str());
+        ss.str("");
+
+        ss << "Voltages: L=" << robot.lV << "V, R=" << robot.rV << "V";
+        renderText(renderer, 10, 90, ss.str());
+        ss.str("");
+
+        ss << "Controller: " << (controllerName.empty() ? "None" : controllerName);
+        renderText(renderer, 10, 110, ss.str());
+    }
+
+    std::string controllerName;
 
     void renderField(SDL_Renderer* sdlRenderer) {
         // Draw field boundary
