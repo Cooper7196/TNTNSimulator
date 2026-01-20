@@ -12,5 +12,8 @@ The simulator will feature a **custom-implemented 2D physics engine**. This engi
 ## Build System
 **CMake** will be utilized as the build system for the C++ project. CMake's cross-platform capabilities and widespread adoption in C++ development will streamline the build process for both the simulator's core components and integrated user algorithms.
 
+## Dependency Management
+**vcpkg** is used for managing C++ dependencies like SDL2 across different platforms.
+
 ## Algorithm Integration
 User-developed C++ algorithms will be integrated by allowing users to compile their source and header files directly alongside the simulator's codebase. This straightforward approach eliminates the need for dynamic loading or scripting interfaces, simplifying the development workflow for algorithm testing.

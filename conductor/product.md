@@ -18,6 +18,7 @@ The simulator will provide the following key features:
 - **2D Visualization:** A clear and simple 2D visualization of the robot and its environment.
 - **C++ Algorithm Integration:** The ability to seamlessly load and execute C++ algorithms for robot control, allowing for rapid testing and iteration.
 - **Realistic Development Environment:** The simulator will mimic the real-world robot's programming interface as closely as possible, enabling code to be developed and tested in the simulator and then deployed to a physical robot with minimal changes.
+- **Manual Control:** Support for controlling the robot using a game controller or keyboard (WASD).
 
 ## Physics Simulation
 The simulator will feature a 2D physics engine with the following characteristics:
