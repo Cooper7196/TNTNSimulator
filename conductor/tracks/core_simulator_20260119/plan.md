@@ -18,8 +18,8 @@
 
 - [x] Task: Design the C++ API for motor control. [c7cbcfe]
     - [x] Implement functions to set motor velocities. [c7cbcfe]
-- [~] Task: Design the C++ API for reading sensor data.
-    - [ ] Implement functions to get data from encoders and inertial sensors.
+- [x] Task: Design the C++ API for reading sensor data. [73b07ce]
+    - [x] Implement functions to get data from encoders and inertial sensors. [73b07ce]
 - [ ] Task: Create an example C++ algorithm to demonstrate API usage.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
 
