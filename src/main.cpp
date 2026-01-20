@@ -22,7 +22,16 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    SDL_Delay(3000);
+    bool quit = false;
+    SDL_Event event;
+
+    while (!quit) {
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT) {
+                quit = true;
+            }
+        }
+    }
 
     SDL_DestroyWindow(window);
     SDL_Quit();
