@@ -1,5 +1,0 @@
-C:/Users/cbros/Documents/Programming/TNTNSimulator/build/CMakeFiles/tntn_core.dir
-C:/Users/cbros/Documents/Programming/TNTNSimulator/build/CMakeFiles/tntn-simulator.dir
-C:/Users/cbros/Documents/Programming/TNTNSimulator/build/CMakeFiles/physics_test.dir
-C:/Users/cbros/Documents/Programming/TNTNSimulator/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/cbros/Documents/Programming/TNTNSimulator/build/CMakeFiles/ZERO_CHECK.dir
