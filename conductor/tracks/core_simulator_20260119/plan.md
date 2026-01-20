@@ -11,7 +11,7 @@
 
 - [x] Task: Design and implement the core components of the custom 2D physics engine for robot movement. [e219451]
 - [x] Task: Create the data structures to represent the VexU robot model (e.g., chassis, wheels, sensors). [15f3711]
-- [~] Task: Integrate the robot model with the physics engine.
+- [x] Task: Integrate the robot model with the physics engine. [9ee889d]
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
 ## Phase 3: C++ API Development
