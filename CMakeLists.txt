@@ -11,4 +11,4 @@ add_executable(tntn-simulator src/main.cpp)
 
 target_include_directories(tntn-simulator PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
-target_link_libraries(tntn-simulator PRIVATE SDL2::SDL2)
+target_link_libraries(tntn-simulator PRIVATE SDL2::SDL2main SDL2::SDL2)
