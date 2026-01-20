@@ -2,7 +2,7 @@
 
 ## Phase 1: Project Scaffolding and Core Libraries
 
-- [~] Task: Set up the initial C++ project structure using CMake.
+- [x] Task: Set up the initial C++ project structure using CMake. [b1cb4af]
 - [ ] Task: Integrate the SDL library for window creation and basic rendering.
 - [ ] Task: Create the main simulation loop.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
