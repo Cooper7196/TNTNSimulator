@@ -1,19 +1,20 @@
-#ifndef RIGIDBODY_H
-#define RIGIDBODY_H
+#pragma once
 
-#include "Vector2D.h"
+#include "Vector2D.hpp"
+
+namespace sim {
 
 struct RigidBody {
     Vector2D position;
     Vector2D velocity;
     Vector2D acceleration;
     
-    double angle;          // Orientation in radians
-    double angularVelocity;
-    double angularAcceleration;
+    double angle;              // radians
+    double angularVelocity;    // radians/sec
+    double angularAcceleration;// radians/sec^2
 
-    double mass;
-    double momentOfInertia;
+    double mass;               // kg
+    double momentOfInertia;    // kg*m^2
 
     RigidBody() 
         : position(0, 0), velocity(0, 0), acceleration(0, 0),
@@ -21,11 +22,15 @@ struct RigidBody {
           mass(1.0), momentOfInertia(1.0) {}
 
     void applyForce(const Vector2D& force) {
-        acceleration += force / mass;
+        if (mass > 0) {
+            acceleration += force / mass;
+        }
     }
 
     void applyTorque(double torque) {
-        angularAcceleration += torque / momentOfInertia;
+        if (momentOfInertia > 0) {
+            angularAcceleration += torque / momentOfInertia;
+        }
     }
 
     void update(double dt) {
@@ -35,10 +40,10 @@ struct RigidBody {
         angularVelocity += angularAcceleration * dt;
         angle += angularVelocity * dt;
 
-        // Reset accelerations for the next step (assuming forces are applied per step)
+        // Reset accelerations for next step
         acceleration = Vector2D(0, 0);
         angularAcceleration = 0;
     }
 };
 
-#endif // RIGIDBODY_H
+}

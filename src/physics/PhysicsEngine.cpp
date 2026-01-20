@@ -1,4 +1,6 @@
-#include "physics/PhysicsEngine.h"
+#include "physics/PhysicsEngine.hpp"
+
+namespace sim {
 
 PhysicsEngine::PhysicsEngine() {}
 
@@ -10,4 +12,6 @@ void PhysicsEngine::update(double dt) {
     for (auto* robot : robots) {
         robot->body.update(dt);
     }
+}
+
 }

@@ -1,8 +1,9 @@
-#ifndef PHYSICSENGINE_H
-#define PHYSICSENGINE_H
+#pragma once
 
-#include "robot/Robot.h"
+#include "robot/Robot.hpp"
 #include <vector>
+
+namespace sim {
 
 class PhysicsEngine {
 public:
@@ -15,4 +16,4 @@ private:
     std::vector<Robot*> robots;
 };
 
-#endif // PHYSICSENGINE_H
+}

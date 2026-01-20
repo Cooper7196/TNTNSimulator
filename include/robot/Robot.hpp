@@ -1,11 +1,12 @@
-#ifndef ROBOT_H
-#define ROBOT_H
+#pragma once
 
-#include "physics/RigidBody.h"
+#include "physics/RigidBody.hpp"
 #include <vector>
 
+namespace sim {
+
 struct Wheel {
-    Vector2D localPosition; // Position relative to robot center
+    Vector2D localPosition;
     double radius;
     double maxSpeed;
     
@@ -23,8 +24,6 @@ public:
     Robot(double w, double l, double mass);
 
     void addWheel(Vector2D position, double radius, double maxSpeed);
-    
-    // Future methods for sensor integration and control will go here
 };
 
-#endif // ROBOT_H
+}

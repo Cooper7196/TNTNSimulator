@@ -1,6 +1,10 @@
 #include <SDL.h>
 #include <SDL_main.h>
 #include <iostream>
+#include "physics/PhysicsEngine.hpp"
+#include "robot/Robot.hpp"
+
+using namespace sim;
 
 int main(int argc, char* argv[]) {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -23,8 +27,17 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    // Initialize Physics
+    PhysicsEngine physics;
+    // 30cm = 0.3m, 5kg
+    Robot robot(0.3, 0.3, 5.0); 
+    physics.addRobot(&robot);
+
     bool quit = false;
     SDL_Event event;
+    
+    // Simulation loop
+    double dt = 0.02; // 20ms
 
     while (!quit) {
         while (SDL_PollEvent(&event)) {
@@ -32,6 +45,14 @@ int main(int argc, char* argv[]) {
                 quit = true;
             }
         }
+
+        // Update Physics
+        physics.update(dt);
+
+        // Render (Placeholder)
+        // ...
+        
+        SDL_Delay(20); // ~50 FPS
     }
 
     SDL_DestroyWindow(window);

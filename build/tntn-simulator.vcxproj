@@ -375,6 +375,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\cbros\Documents\Programming\TNTNSimulator\src\main.cpp" />
+    <ClCompile Include="C:\Users\cbros\Documents\Programming\TNTNSimulator\src\robot\Robot.cpp" />
+    <ClCompile Include="C:\Users\cbros\Documents\Programming\TNTNSimulator\src\physics\PhysicsEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\cbros\Documents\Programming\TNTNSimulator\build\ZERO_CHECK.vcxproj">
