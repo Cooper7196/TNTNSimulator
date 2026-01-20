@@ -1,6 +1,6 @@
 # Implementation Plan: Core 2D VexU Robot Simulator
 
-## Phase 1: Project Scaffolding and Core Libraries
+## Phase 1: Project Scaffolding and Core Libraries [checkpoint: d09090d]
 
 - [x] Task: Set up the initial C++ project structure using CMake. [b1cb4af]
 - [x] Task: Integrate the SDL library for window creation and basic rendering. [e0c5c7d]
